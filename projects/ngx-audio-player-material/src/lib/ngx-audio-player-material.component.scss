@@ -1,0 +1,38 @@
+@import "sizes";
+:host {
+  & * {
+    transition: ease-in-out 250ms;
+  }
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    height: auto!important;
+    @media #{$mat-lt-sm} {
+      flex-wrap: wrap;
+    }
+    & > * {
+      margin: 0 .25rem;
+    }
+
+    .poster {
+      flex: 1 1 108px;
+      max-width: 108px;
+      height: 62px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: rgba(59, 59, 59, 0.4);
+      @media #{$mat-lt-sm} {
+        max-width: 100%;
+        flex: 1 1 100%;
+        height: 75px;
+      }
+    }
+
+    .progress-container {
+      flex: 1 1 auto;
+    }
+  }
+}
+.volume-menu{
+  min-width: initial!important;
+  text-align: center;
+}

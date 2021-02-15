@@ -1,0 +1,31 @@
+<mat-toolbar [color]="color" *ngIf="(status$ | async)">
+  <div *ngIf="poster" [style.background-image]="'url('+poster+')'"
+       class="poster"></div>
+  <button (click)="play()" *ngIf="(status$ | async).paused" mat-icon-button>
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+  <button (click)="pause()" *ngIf="!(status$ | async).paused" mat-icon-button>
+    <mat-icon>pause</mat-icon>
+  </button>
+  <div class="time-view">
+    {{(status$ | async).currentTime | timeFormat}} /
+    {{(status$ | async).duration | timeFormat}}
+  </div>
+  <div class="progress-container">
+    <mat-slider (change)="seek($event)" (mousedown)="pause()" (mouseup)="play()" [max]="(status$ | async).duration"
+                [value]="(status$ | async).currentTime" style="width: 100%;"></mat-slider>
+  </div>
+  <div class="volume-container">
+    <button [matMenuTriggerFor]="volumeMenu" mat-icon-button matSuffix>
+      <mat-icon>{{ (status$ | async).muted ? 'volume_off' : 'volume_up'}}</mat-icon>
+    </button>
+    <mat-menu #volumeMenu class="volume-menu">
+      <button (click)="muteToggle()" mat-menu-item>
+        <mat-icon>{{ (status$ | async).muted ? 'volume_off' : 'volume_up'}}</mat-icon>
+      </button>
+      <mat-slider (change)="changeVolume($event)" [value]="(status$ | async).volume * 100"
+                  vertical="vertical"></mat-slider>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<audio #audioElement [src]="src"></audio>
