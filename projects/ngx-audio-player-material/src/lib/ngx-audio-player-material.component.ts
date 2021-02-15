@@ -17,6 +17,7 @@ export class NgxAudioPlayerMaterialComponent  implements AfterViewInit, OnDestro
   @Input() src = '';
   @Input() poster = '';
   @Input() color: 'primary' | 'accent' | 'warn' | undefined;
+  @Input() btnColor: 'primary' | 'accent' | 'warn' | undefined;
   @ViewChild('audioElement') audioElement: ElementRef<HTMLAudioElement>;
   private audioService: AudioPlayerService;
   private subscription = new Subscription();
