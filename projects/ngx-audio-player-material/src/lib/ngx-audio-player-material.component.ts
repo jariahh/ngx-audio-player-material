@@ -7,7 +7,7 @@ import {MatSliderChange} from '@angular/material/slider';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'ngx-audio-player-material',
+  selector: 'ngx-audio-player',
   templateUrl: 'ngx-audio-player-material.component.html',
   styleUrls: ['./ngx-audio-player-material.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

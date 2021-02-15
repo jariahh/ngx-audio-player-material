@@ -1,24 +1,27 @@
-# NgxAudioPlayerMaterial
+## ngx-audio-player-material
+This is a simple html5 wrapper to play audio using standard angular material for a material like view to match your angular material theme.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4.
+---
 
-## Code scaffolding
+### Install
+Install ngx-audio-player-material from npm:
 
-Run `ng generate component component-name --project ngx-audio-player-material` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-audio-player-material`.
-> Note: Don't forget to add `--project ngx-audio-player-material` or else it will be added to the default project in your `angular.json` file. 
+`npm install ngx-audio-player-material -save`
 
-## Build
-
-Run `ng build ngx-audio-player-material` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ngx-audio-player-material`, go to the dist folder `cd dist/ngx-audio-player-material` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-audio-player-material` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Add needed package to NgModule imports:
+```
+import { NgxAudioPlayerMaterialModule } from "ngx-audio-player-material";
+ @NgModule({ 
+...
+  imports: [
+    NgxAudioPlayerMaterialModule
+  ]
+...
+})
+```
+Add component to your page:
+```
+<ngx-audio-player
+    [poster]="song.imageUrl"
+    [src]="song.url"></ngx-audio-player>
+```
