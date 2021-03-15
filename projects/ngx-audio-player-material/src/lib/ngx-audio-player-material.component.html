@@ -1,6 +1,7 @@
 <mat-toolbar *ngIf="(status$ | async)" [color]="color">
   <div *ngIf="poster" [style.background-image]="'url('+poster+')'"
        class="poster"></div>
+  <div *ngIf="title">{{title}}</div>
   <button (click)="play()" *ngIf="(status$ | async).paused" [color]="btnColor" mat-icon-button>
     <mat-icon>play_arrow</mat-icon>
   </button>
@@ -16,7 +17,7 @@
                 [max]="(status$ | async).duration"
                 [value]="(status$ | async).currentTime" style="width: 100%;"></mat-slider>
   </div>
-  <div class="volume-container">
+  <div class="volume-container" *ngIf="!hideAudio">
     <button [color]="btnColor" [matMenuTriggerFor]="volumeMenu" mat-icon-button matSuffix>
       <mat-icon>{{ (status$ | async).muted ? 'volume_off' : 'volume_up'}}</mat-icon>
     </button>

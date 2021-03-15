@@ -15,6 +15,8 @@ import {MatSliderChange} from '@angular/material/slider';
 export class NgxAudioPlayerMaterialComponent  implements AfterViewInit, OnDestroy{
 
   @Input() src = '';
+  @Input() hideAudio = false;
+  @Input() title = '';
   @Input() poster = '';
   @Input() color: 'primary' | 'accent' | 'warn' | undefined;
   @Input() btnColor: 'primary' | 'accent' | 'warn' | undefined;

@@ -8,6 +8,7 @@
     "build-lib" : "ng build ngx-audio-player-material --watch",
     "build-lib-prod" : "ng build ngx-audio-player-material --prod ",
     "build-lib-publish" : "cd dist/ngx-audio-player-material && npm publish --access public --scope=jariah",
+    "publish": "npm run build-lib-prod && npm run build-lib-publish",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
